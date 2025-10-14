@@ -1,7 +1,7 @@
 import { useState, useEffect } from "react";
 import { Menu, X } from "lucide-react";
 import { Button } from "@/components/ui/button";
-import nexussLogo from "@/assets/nexuss-logo.jpg";
+import nexussLogo from "@/assets/nexuss-logo.png";
 
 const Navigation = () => {
   const [isScrolled, setIsScrolled] = useState(false);

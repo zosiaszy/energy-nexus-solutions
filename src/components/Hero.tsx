@@ -1,4 +1,4 @@
-import { ArrowRight, Calculator } from "lucide-react";
+import { ArrowRight } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import heroImage from "@/assets/hero-image.jpg";
 
@@ -19,7 +19,7 @@ const Hero = () => {
       <div className="container mx-auto px-4 sm:px-6 lg:px-8 relative z-10 pt-20">
         <div className="max-w-4xl animate-fade-in">
           <h1 className="text-4xl sm:text-5xl lg:text-7xl font-bold text-primary-foreground mb-6 leading-tight">
-            Czysta energia.<br />Komfort przez cały rok.
+            Twój dom. Twoja energia.<br />Twoje ciepło.
           </h1>
           <p className="text-xl sm:text-2xl text-primary-foreground/90 mb-8 max-w-2xl leading-relaxed">
             Nexuss to kompleksowe rozwiązania OZE — fotowoltaika, magazyny energii, pompy ciepła i klimatyzacja. 
@@ -30,17 +30,12 @@ const Hero = () => {
             <Button 
               size="lg" 
               className="bg-accent hover:bg-accent/90 text-accent-foreground text-lg px-8 py-6 group"
+              asChild
             >
-              Umów darmową wycenę
-              <ArrowRight className="ml-2 group-hover:translate-x-1 transition-transform" />
-            </Button>
-            <Button 
-              size="lg" 
-              variant="outline" 
-              className="bg-primary-foreground/10 hover:bg-primary-foreground/20 text-primary-foreground border-primary-foreground/30 text-lg px-8 py-6 backdrop-blur-sm"
-            >
-              <Calculator className="mr-2" />
-              Sprawdź oszczędności
+              <a href="#kontakt">
+                Umów darmową wycenę
+                <ArrowRight className="ml-2 group-hover:translate-x-1 transition-transform" />
+              </a>
             </Button>
           </div>
 
