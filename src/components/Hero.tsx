@@ -12,7 +12,7 @@ const Hero = () => {
           alt="Nowoczesny dom z panelami fotowoltaicznymi"
           className="w-full h-full object-cover"
         />
-        <div className="absolute inset-0 bg-gradient-to-r from-primary/90 via-primary/70 to-primary/50"></div>
+        <div className="absolute inset-0 bg-gradient-to-r from-primary/95 via-primary/85 to-primary/70"></div>
       </div>
 
       {/* Content */}
