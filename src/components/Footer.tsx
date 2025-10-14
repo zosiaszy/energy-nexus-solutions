@@ -1,4 +1,5 @@
 import { Facebook, Instagram, Linkedin, Mail } from "lucide-react";
+import nexussLogo from "@/assets/nexuss-logo.jpg";
 
 const Footer = () => {
   const currentYear = new Date().getFullYear();
@@ -9,10 +10,12 @@ const Footer = () => {
         <div className="grid grid-cols-1 md:grid-cols-4 gap-8 mb-8">
           {/* Logo and Description */}
           <div className="md:col-span-2">
-            <div className="flex items-center space-x-2 mb-4">
-              <div className="w-10 h-10 bg-accent rounded-lg flex items-center justify-center">
-                <span className="text-accent-foreground font-bold text-xl">N</span>
-              </div>
+            <div className="flex items-center space-x-3 mb-4">
+              <img 
+                src={nexussLogo} 
+                alt="Nexuss Logo" 
+                className="w-12 h-12 object-contain"
+              />
               <span className="text-2xl font-bold">Nexuss</span>
             </div>
             <p className="text-primary-foreground/70 mb-4 max-w-md">
