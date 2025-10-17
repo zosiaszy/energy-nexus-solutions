@@ -62,7 +62,7 @@ const HowItWorks = () => {
                 )}
 
                 <div className="relative bg-white/5 backdrop-blur-sm rounded-2xl p-6 border border-white/10 hover:border-accent/50 transition-all hover-lift h-full flex flex-col">
-                  <div className="text-6xl font-bold text-accent/20 mb-4">{step.number}</div>
+                  <div className="text-6xl font-bold text-accent/60 mb-4">{step.number}</div>
                   <div className="w-14 h-14 bg-accent rounded-xl flex items-center justify-center mb-4">
                     <Icon className="w-7 h-7 text-accent-foreground" />
                   </div>
