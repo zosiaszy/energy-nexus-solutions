@@ -18,11 +18,11 @@ const Hero = () => {
       {/* Content */}
       <div className="container mx-auto px-4 sm:px-6 lg:px-8 relative z-10 pt-20">
         <div className="max-w-4xl animate-fade-in">
-          <h1 className="text-4xl sm:text-5xl lg:text-7xl font-bold text-primary-foreground mb-6 leading-tight">
+          <h1 className="text-4xl sm:text-5xl lg:text-7xl font-bold text-white mb-6 leading-tight">
             Twój dom. Twoja energia.<br />Twoje ciepło.
           </h1>
-          <p className="text-xl sm:text-2xl text-primary-foreground/90 mb-8 max-w-2xl leading-relaxed">
-            Nexuss to kompleksowe rozwiązania OZE - od elastycznych paneli balkonowych, po inteligentne magazyny energii i pompy ciepła.
+          <p className="text-xl sm:text-2xl text-white mb-8 max-w-2xl leading-relaxed">
+            Nexuss to kompleksowe rozwiązania OZE<br />- od elastycznych paneli balkonowych, po inteligentne magazyny energii i pompy ciepła.
           </p>
 
           <div className="flex flex-col sm:flex-row gap-4">
@@ -39,18 +39,18 @@ const Hero = () => {
           </div>
 
           {/* Stats */}
-          <div className="grid grid-cols-2 md:grid-cols-3 gap-6 mt-16 pt-8 border-t border-primary-foreground/20">
+          <div className="grid grid-cols-2 md:grid-cols-3 gap-6 mt-16 pt-8 border-t border-white/20">
             <div className="animate-fade-in">
               <div className="text-4xl font-bold text-accent mb-2">500+</div>
-              <div className="text-primary-foreground/80 text-sm">Zadowolonych klientów</div>
+              <div className="text-white/80 text-sm">Zadowolonych klientów</div>
             </div>
             <div className="animate-fade-in" style={{ animationDelay: "0.1s" }}>
               <div className="text-4xl font-bold text-accent mb-2">70%</div>
-              <div className="text-primary-foreground/80 text-sm">Redukcja rachunków</div>
+              <div className="text-white/80 text-sm">Redukcja rachunków</div>
             </div>
             <div className="animate-fade-in col-span-2 md:col-span-1" style={{ animationDelay: "0.2s" }}>
               <div className="text-4xl font-bold text-accent mb-2">15+</div>
-              <div className="text-primary-foreground/80 text-sm">Lat doświadczenia</div>
+              <div className="text-white/80 text-sm">Lat doświadczenia</div>
             </div>
           </div>
         </div>
