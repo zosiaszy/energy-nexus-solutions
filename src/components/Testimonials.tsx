@@ -30,9 +30,6 @@ const Testimonials = () => {
           <h2 className="text-4xl md:text-5xl font-bold mb-6 text-foreground">
             Co mówią o nas nasi klienci
           </h2>
-          <p className="text-xl text-muted-foreground max-w-2xl mx-auto">
-            Zaufanie i satysfakcja klientów to nasz największy sukces
-          </p>
         </div>
 
         <div className="grid grid-cols-1 md:grid-cols-3 gap-8 max-w-6xl mx-auto">

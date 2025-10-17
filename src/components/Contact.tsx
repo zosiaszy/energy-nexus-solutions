@@ -32,11 +32,10 @@ const Contact = () => {
         <div className="max-w-6xl mx-auto">
           <div className="text-center mb-16 animate-fade-in">
             <h2 className="text-4xl md:text-5xl font-bold mb-6 text-foreground">
-              Zrób pierwszy krok do energetycznej niezależności
+              Zrób pierwszy krok do niezależności energetycznej
             </h2>
             <p className="text-xl text-muted-foreground max-w-3xl mx-auto">
-              Skontaktuj się z nami — przygotujemy bezpłatną wycenę i dobierzemy idealne rozwiązanie 
-              dla Twojego domu lub firmy.
+              Skontaktuj się z nami, aby otrzymać wycenę instalacji OZE. Doradzimy, jakie rozwiązanie - fotowoltaika, pompa ciepła lub magazyn energii najlepiej sprawdzi się w Twoim domu lub firmie. Zadzwoń lub napisz i zacznij oszczędzać z energią przyszłości.
             </p>
           </div>
 

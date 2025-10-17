@@ -5,17 +5,17 @@ const WhyUs = () => {
     {
       icon: Settings,
       title: "Kompleksowa obsługa",
-      description: "Od audytu po montaż i serwis — wszystko w jednym miejscu.",
+      description: "Od audytu po montaż i serwis - wszystko w jednym miejscu.",
     },
     {
       icon: Wallet,
       title: "Oszczędność",
-      description: "Rachunki niższe nawet o 70% dzięki naszym rozwiązaniom.",
+      description: "Obniż rachunki za prąd nawet o 90% dzięki naszym rozwiązaniom.",
     },
     {
       icon: Leaf,
       title: "Ekologia",
-      description: "Czysta energia bez kompromisów dla przyszłości planety.",
+      description: "Z nami wybierasz energię przyjazną dla przyszłych pokoleń.",
     },
     {
       icon: Home,

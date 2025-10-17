@@ -47,13 +47,13 @@ const Navigation = () => {
               <a
                 key={link.name}
                 href={link.href}
-                className="text-foreground hover:text-accent transition-colors duration-200 font-medium"
+                className="text-white hover:text-accent transition-colors duration-200 font-medium"
               >
                 {link.name}
               </a>
             ))}
-            <Button variant="default" className="bg-accent hover:bg-accent/90 text-accent-foreground">
-              Umów konsultację
+            <Button variant="default" className="bg-accent hover:bg-accent/90 text-accent-foreground" asChild>
+              <a href="#kontakt">Umów konsultację</a>
             </Button>
           </div>
 
@@ -80,8 +80,8 @@ const Navigation = () => {
                   {link.name}
                 </a>
               ))}
-              <Button variant="default" className="bg-accent hover:bg-accent/90 text-accent-foreground w-full">
-                Umów konsultację
+              <Button variant="default" className="bg-accent hover:bg-accent/90 text-accent-foreground w-full" asChild>
+                <a href="#kontakt">Umów konsultację</a>
               </Button>
             </div>
           </div>

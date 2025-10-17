@@ -53,7 +53,7 @@ const HowItWorks = () => {
             return (
               <div
                 key={index}
-                className="relative animate-fade-in"
+                className="relative animate-fade-in h-full"
                 style={{ animationDelay: `${index * 0.15}s` }}
               >
                 {/* Connection line (hidden on mobile, last item) */}
@@ -61,12 +61,12 @@ const HowItWorks = () => {
                   <div className="hidden lg:block absolute top-16 left-1/2 w-full h-0.5 bg-accent/30"></div>
                 )}
 
-                <div className="relative bg-primary-foreground/5 backdrop-blur-sm rounded-2xl p-6 border border-primary-foreground/10 hover:border-accent/50 transition-all hover-lift">
+                <div className="relative bg-primary-foreground/5 backdrop-blur-sm rounded-2xl p-6 border border-primary-foreground/10 hover:border-accent/50 transition-all hover-lift h-full flex flex-col">
                   <div className="text-6xl font-bold text-accent/20 mb-4">{step.number}</div>
                   <div className="w-14 h-14 bg-accent rounded-xl flex items-center justify-center mb-4">
                     <Icon className="w-7 h-7 text-accent-foreground" />
                   </div>
-                  <h3 className="text-xl font-semibold mb-3">{step.title}</h3>
+                  <h3 className="text-xl font-semibold mb-3 min-h-[3.5rem]">{step.title}</h3>
                   <p className="text-primary-foreground/70">{step.description}</p>
                 </div>
               </div>
@@ -75,8 +75,8 @@ const HowItWorks = () => {
         </div>
 
         <div className="text-center animate-fade-in" style={{ animationDelay: "0.6s" }}>
-          <Button size="lg" className="bg-accent hover:bg-accent/90 text-accent-foreground text-lg px-10 py-6">
-            Zamów audyt za 0 zł
+          <Button size="lg" className="bg-accent hover:bg-accent/90 text-accent-foreground text-lg px-10 py-6" asChild>
+            <a href="#kontakt">Zamów audyt za 0 zł</a>
           </Button>
         </div>
       </div>

@@ -12,8 +12,8 @@ const Services = () => {
     },
     {
       icon: Building2,
-      title: "Elastyczne panele dla mieszkań",
-      description: "Lekka, nowoczesna fotowoltaika dopasowana do przestrzeni miejskich i balkonów.",
+      title: "Elastyczne panele dla mieszkań z inteligentnymi magazynami energii",
+      description: "Lekka, nowoczesna technologia do przestrzeni miejskiej i balkonów.",
       link: "#panele-elastyczne",
     },
     {
@@ -41,11 +41,10 @@ const Services = () => {
       <div className="container mx-auto px-4 sm:px-6 lg:px-8">
         <div className="text-center mb-16 animate-fade-in">
           <h2 className="text-4xl md:text-5xl font-bold mb-6 text-foreground">
-            Rozwiązania dopasowane do Twojego stylu życia
+            Rozwiązania, które dają Ci niezależność energetyczną
           </h2>
           <p className="text-xl text-muted-foreground max-w-3xl mx-auto">
-            Od energii słonecznej po systemy grzewcze — Nexuss oferuje kompleksową obsługę energetyczną 
-            dla domu, mieszkania i firmy.
+            Od energii słonecznej po systemy grzewcze - Nexuss oferuje kompleksową obsługę energetyczną dla domu, mieszkań i firmy.
           </p>
         </div>
 

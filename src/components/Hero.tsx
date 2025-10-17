@@ -12,7 +12,7 @@ const Hero = () => {
           alt="Nowoczesny dom z panelami fotowoltaicznymi"
           className="w-full h-full object-cover"
         />
-        <div className="absolute inset-0 bg-gradient-to-r from-primary/95 via-primary/85 to-primary/70"></div>
+        <div className="absolute inset-0 bg-gradient-to-r from-primary/90 via-primary/80 to-primary/60"></div>
       </div>
 
       {/* Content */}
@@ -22,8 +22,7 @@ const Hero = () => {
             Twój dom. Twoja energia.<br />Twoje ciepło.
           </h1>
           <p className="text-xl sm:text-2xl text-primary-foreground/90 mb-8 max-w-2xl leading-relaxed">
-            Nexuss to kompleksowe rozwiązania OZE — fotowoltaika, magazyny energii, pompy ciepła i klimatyzacja. 
-            Tworzymy domy niezależne od rachunków.
+            Nexuss to kompleksowe rozwiązania OZE - od elastycznych paneli balkonowych, po inteligentne magazyny energii i pompy ciepła.
           </p>
 
           <div className="flex flex-col sm:flex-row gap-4">
@@ -57,12 +56,6 @@ const Hero = () => {
         </div>
       </div>
 
-      {/* Scroll Indicator */}
-      <div className="absolute bottom-8 left-1/2 transform -translate-x-1/2 z-10 animate-bounce">
-        <div className="w-6 h-10 border-2 border-primary-foreground/50 rounded-full flex justify-center">
-          <div className="w-1 h-3 bg-primary-foreground/50 rounded-full mt-2"></div>
-        </div>
-      </div>
     </section>
   );
 };

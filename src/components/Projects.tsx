@@ -37,8 +37,7 @@ const Projects = () => {
             Nasze realizacje
           </h2>
           <p className="text-xl text-muted-foreground max-w-3xl mx-auto">
-            Zaufali nam właściciele domów i mieszkań w całej Polsce. Zobacz, jak pomagamy naszym klientom 
-            oszczędzać i żyć ekologicznie.
+            Zaufali nam właściciele domów i mieszkań w całej Polsce. Zobacz jak pomagamy naszym klientom.
           </p>
         </div>
 
@@ -46,10 +45,10 @@ const Projects = () => {
           {projects.map((project, index) => (
             <div
               key={index}
-              className="group relative overflow-hidden rounded-2xl animate-fade-in hover-lift"
+              className="group relative overflow-hidden rounded-2xl animate-fade-in hover-lift h-full"
               style={{ animationDelay: `${index * 0.1}s` }}
             >
-              <div className="aspect-[4/5] relative">
+              <div className="aspect-[4/5] relative h-full">
                 <img
                   src={project.image}
                   alt={project.title}
@@ -61,7 +60,7 @@ const Projects = () => {
                   <div className="inline-block px-3 py-1 bg-accent rounded-full text-xs font-medium mb-3">
                     {project.type}
                   </div>
-                  <h3 className="text-lg font-semibold mb-2">{project.title}</h3>
+                  <h3 className="text-lg font-semibold mb-2 min-h-[3.5rem] flex items-center">{project.title}</h3>
                   <div className="flex items-center text-sm text-primary-foreground/80">
                     <MapPin className="w-4 h-4 mr-1" />
                     {project.location}
@@ -73,8 +72,8 @@ const Projects = () => {
         </div>
 
         <div className="text-center animate-fade-in">
-          <Button variant="outline" size="lg" className="border-accent text-accent hover:bg-accent hover:text-accent-foreground">
-            Zobacz więcej realizacji
+          <Button variant="outline" size="lg" className="border-accent text-accent hover:bg-accent hover:text-accent-foreground" asChild>
+            <a href="#kontakt">Zobacz więcej realizacji</a>
           </Button>
         </div>
       </div>

@@ -7,15 +7,13 @@ const About = () => {
         <div className="max-w-4xl mx-auto">
           <div className="text-center mb-12 animate-fade-in">
             <h2 className="text-4xl md:text-5xl font-bold mb-6 text-foreground">
-              Łączymy technologię z troską o planetę
+              Tworzymy domy niezależne energetycznie - z troską o planetę
             </h2>
           </div>
 
           <div className="prose prose-lg max-w-none mb-12 animate-fade-in" style={{ animationDelay: "0.1s" }}>
             <p className="text-xl text-muted-foreground leading-relaxed text-center">
-              Nexuss to polska firma OZE, która wierzy, że każdy dom może być samowystarczalny.
-              Pomagamy naszym klientom ograniczyć rachunki, uniezależnić się od sieci i budować czystszą przyszłość.
-              Od pierwszej rozmowy po serwis — jesteśmy z Tobą na każdym etapie.
+              Nexuss to polska firma specjalizująca się w odnawialnych źródłach energii OZE. Pomagamy obniżać rachunki za prąd, uniezależniać się od sieci i budować czystszą przyszłość. Od projektu po montaż i serwis - jesteśmy z Tobą na każdym etapie.
             </p>
           </div>
 
@@ -26,7 +24,7 @@ const About = () => {
               </div>
               <h3 className="text-xl font-semibold mb-2 text-foreground">Nasza misja</h3>
               <p className="text-muted-foreground">
-                Wspieranie energetycznej niezależności każdego gospodarstwa domowego
+                Być źródłem czystej energii dla każdego domu.
               </p>
             </div>
 
@@ -36,7 +34,7 @@ const About = () => {
               </div>
               <h3 className="text-xl font-semibold mb-2 text-foreground">Nasz zespół</h3>
               <p className="text-muted-foreground">
-                Certyfikowani specjaliści z pasją do odnawialnych źródeł energii
+                Eksperci z certyfikatami i pasją do energii odnawialnej.
               </p>
             </div>
 
@@ -46,7 +44,7 @@ const About = () => {
               </div>
               <h3 className="text-xl font-semibold mb-2 text-foreground">Jakość</h3>
               <p className="text-muted-foreground">
-                Współpraca tylko z renomowanymi producentami i najwyższa jakość usług
+                Stawiamy na sprawdzone technologie i najwyższe standardy montażu.
               </p>
             </div>
           </div>
