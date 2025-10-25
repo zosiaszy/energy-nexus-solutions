@@ -3,27 +3,100 @@ import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
 import { Textarea } from "@/components/ui/textarea";
-import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select";
 import { Phone, Mail, MapPin } from "lucide-react";
 import { useToast } from "@/hooks/use-toast";
+import { supabase } from "@/integrations/supabase/client";
 
 const Contact = () => {
   const { toast } = useToast();
+  const [isSubmitting, setIsSubmitting] = useState(false);
   const [formData, setFormData] = useState({
     name: "",
     phone: "",
     email: "",
-    propertyType: "",
+    message: "",
+    honeypot: "", // Hidden field for spam protection
+  });
+
+  const [errors, setErrors] = useState({
+    name: "",
+    email: "",
     message: "",
   });
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const validateForm = () => {
+    const newErrors = {
+      name: "",
+      email: "",
+      message: "",
+    };
+
+    if (!formData.name.trim() || formData.name.trim().length < 2) {
+      newErrors.name = "Imię i nazwisko jest wymagane (minimum 2 znaki)";
+    }
+
+    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+    if (!formData.email.trim() || !emailRegex.test(formData.email)) {
+      newErrors.email = "Podaj poprawny adres e-mail";
+    }
+
+    if (!formData.message.trim() || formData.message.trim().length < 10) {
+      newErrors.message = "Wiadomość musi mieć minimum 10 znaków";
+    }
+
+    setErrors(newErrors);
+    return !newErrors.name && !newErrors.email && !newErrors.message;
+  };
+
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    toast({
-      title: "Wiadomość wysłana!",
-      description: "Skontaktujemy się z Tobą wkrótce.",
-    });
-    setFormData({ name: "", phone: "", email: "", propertyType: "", message: "" });
+
+    if (!validateForm()) {
+      toast({
+        title: "Błąd walidacji",
+        description: "Proszę poprawić błędy w formularzu",
+        variant: "destructive",
+      });
+      return;
+    }
+
+    setIsSubmitting(true);
+
+    try {
+      const { data, error } = await supabase.functions.invoke("send-contact-email", {
+        body: {
+          name: formData.name.trim(),
+          email: formData.email.trim(),
+          phone: formData.phone.trim() || undefined,
+          message: formData.message.trim(),
+          honeypot: formData.honeypot,
+        },
+      });
+
+      if (error) {
+        throw error;
+      }
+
+      if (data?.success) {
+        toast({
+          title: "Dziękujemy!",
+          description: "Formularz został wysłany. Skontaktujemy się z Tobą jak najszybciej.",
+        });
+        setFormData({ name: "", phone: "", email: "", message: "", honeypot: "" });
+        setErrors({ name: "", email: "", message: "" });
+      } else {
+        throw new Error(data?.error || "Wystąpił błąd podczas wysyłania formularza");
+      }
+    } catch (error: any) {
+      console.error("Error submitting contact form:", error);
+      toast({
+        title: "Błąd",
+        description: error.message || "Nie udało się wysłać wiadomości. Spróbuj ponownie.",
+        variant: "destructive",
+      });
+    } finally {
+      setIsSubmitting(false);
+    }
   };
 
   return (
@@ -43,15 +116,50 @@ const Contact = () => {
             {/* Contact Form */}
             <div className="animate-fade-in" style={{ animationDelay: "0.1s" }}>
               <form onSubmit={handleSubmit} className="space-y-6">
+                {/* Honeypot field - hidden from users */}
+                <input
+                  type="text"
+                  name="website"
+                  value={formData.honeypot}
+                  onChange={(e) => setFormData({ ...formData, honeypot: e.target.value })}
+                  style={{ display: "none" }}
+                  tabIndex={-1}
+                  autoComplete="off"
+                />
+
                 <div>
-                  <Label htmlFor="name">Imię i nazwisko</Label>
+                  <Label htmlFor="name">Imię i nazwisko *</Label>
                   <Input
                     id="name"
                     value={formData.name}
-                    onChange={(e) => setFormData({ ...formData, name: e.target.value })}
-                    required
-                    className="mt-2"
+                    onChange={(e) => {
+                      setFormData({ ...formData, name: e.target.value });
+                      setErrors({ ...errors, name: "" });
+                    }}
+                    className={`mt-2 ${errors.name ? "border-red-500" : ""}`}
+                    disabled={isSubmitting}
                   />
+                  {errors.name && (
+                    <p className="text-red-500 text-sm mt-1">{errors.name}</p>
+                  )}
+                </div>
+
+                <div>
+                  <Label htmlFor="email">E-mail *</Label>
+                  <Input
+                    id="email"
+                    type="email"
+                    value={formData.email}
+                    onChange={(e) => {
+                      setFormData({ ...formData, email: e.target.value });
+                      setErrors({ ...errors, email: "" });
+                    }}
+                    className={`mt-2 ${errors.email ? "border-red-500" : ""}`}
+                    disabled={isSubmitting}
+                  />
+                  {errors.email && (
+                    <p className="text-red-500 text-sm mt-1">{errors.email}</p>
+                  )}
                 </div>
 
                 <div>
@@ -61,50 +169,36 @@ const Contact = () => {
                     type="tel"
                     value={formData.phone}
                     onChange={(e) => setFormData({ ...formData, phone: e.target.value })}
-                    required
                     className="mt-2"
+                    disabled={isSubmitting}
                   />
                 </div>
 
                 <div>
-                  <Label htmlFor="email">E-mail</Label>
-                  <Input
-                    id="email"
-                    type="email"
-                    value={formData.email}
-                    onChange={(e) => setFormData({ ...formData, email: e.target.value })}
-                    required
-                    className="mt-2"
-                  />
-                </div>
-
-                <div>
-                  <Label htmlFor="propertyType">Typ nieruchomości</Label>
-                  <Select value={formData.propertyType} onValueChange={(value) => setFormData({ ...formData, propertyType: value })}>
-                    <SelectTrigger className="mt-2">
-                      <SelectValue placeholder="Wybierz typ" />
-                    </SelectTrigger>
-                    <SelectContent className="bg-popover border-border">
-                      <SelectItem value="dom">Dom jednorodzinny</SelectItem>
-                      <SelectItem value="mieszkanie">Mieszkanie</SelectItem>
-                      <SelectItem value="firma">Firma</SelectItem>
-                    </SelectContent>
-                  </Select>
-                </div>
-
-                <div>
-                  <Label htmlFor="message">Wiadomość (opcjonalnie)</Label>
+                  <Label htmlFor="message">Wiadomość *</Label>
                   <Textarea
                     id="message"
                     value={formData.message}
-                    onChange={(e) => setFormData({ ...formData, message: e.target.value })}
-                    rows={4}
-                    className="mt-2"
+                    onChange={(e) => {
+                      setFormData({ ...formData, message: e.target.value });
+                      setErrors({ ...errors, message: "" });
+                    }}
+                    rows={6}
+                    className={`mt-2 ${errors.message ? "border-red-500" : ""}`}
+                    disabled={isSubmitting}
                   />
+                  {errors.message && (
+                    <p className="text-red-500 text-sm mt-1">{errors.message}</p>
+                  )}
                 </div>
 
-                <Button type="submit" size="lg" className="w-full bg-accent hover:bg-accent/90 text-accent-foreground">
-                  Wyślij wiadomość
+                <Button 
+                  type="submit" 
+                  size="lg" 
+                  className="w-full bg-accent hover:bg-accent/90 text-accent-foreground"
+                  disabled={isSubmitting}
+                >
+                  {isSubmitting ? "Wysyłanie..." : "Wyślij wiadomość"}
                 </Button>
               </form>
             </div>
@@ -133,8 +227,8 @@ const Contact = () => {
                     </div>
                     <div>
                       <div className="font-medium text-foreground mb-1">E-mail</div>
-                      <a href="mailto:kontakt@nexuss.pl" className="text-muted-foreground hover:text-accent transition-colors">
-                        kontakt@nexuss.pl
+                      <a href="mailto:kontakt@nexuss.com.pl" className="text-muted-foreground hover:text-accent transition-colors">
+                        kontakt@nexuss.com.pl
                       </a>
                     </div>
                   </div>

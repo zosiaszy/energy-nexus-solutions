@@ -1,5 +1,6 @@
 import { Button } from "@/components/ui/button";
 import { MapPin } from "lucide-react";
+import installationPv from "@/assets/installation-pv-temp.jpg";
 
 const Projects = () => {
   const projects = [
@@ -7,7 +8,7 @@ const Projects = () => {
       title: "Instalacja PV 10 kWp",
       location: "Wrocław",
       type: "Fotowoltaika",
-      image: "https://images.unsplash.com/photo-1509391366360-2e959784a276?w=800&h=600&fit=crop",
+      image: installationPv,
     },
     {
       title: "Pompa ciepła powietrze-woda",

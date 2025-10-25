@@ -68,13 +68,13 @@ const Navigation = () => {
 
         {/* Mobile Menu */}
         {isMobileMenuOpen && (
-          <div className="md:hidden py-4 animate-fade-in">
-            <div className="flex flex-col space-y-4">
+          <div className="md:hidden py-4 animate-fade-in bg-black/95 backdrop-blur-md rounded-lg mt-2">
+            <div className="flex flex-col space-y-4 px-4">
               {navLinks.map((link) => (
                 <a
                   key={link.name}
                   href={link.href}
-                  className="text-foreground hover:text-accent transition-colors duration-200 font-medium py-2"
+                  className="text-white hover:text-accent transition-colors duration-200 font-medium py-2"
                   onClick={() => setIsMobileMenuOpen(false)}
                 >
                   {link.name}
