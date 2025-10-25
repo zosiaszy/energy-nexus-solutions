@@ -1,6 +1,5 @@
 import { Button } from "@/components/ui/button";
 import { MapPin } from "lucide-react";
-import installationPv from "@/assets/installation-pv-temp.jpg";
 
 const Projects = () => {
   const projects = [
@@ -8,7 +7,7 @@ const Projects = () => {
       title: "Instalacja PV 10 kWp",
       location: "Wrocław",
       type: "Fotowoltaika",
-      image: installationPv,
+      image: "https://i.postimg.cc/XvTVj4s0/nn.png",
     },
     {
       title: "Pompa ciepła powietrze-woda",
@@ -34,9 +33,7 @@ const Projects = () => {
     <section id="realizacje" className="py-20 bg-secondary">
       <div className="container mx-auto px-4 sm:px-6 lg:px-8">
         <div className="text-center mb-16 animate-fade-in">
-          <h2 className="text-4xl md:text-5xl font-bold mb-6 text-foreground">
-            Nasze realizacje
-          </h2>
+          <h2 className="text-4xl md:text-5xl font-bold mb-6 text-foreground">Nasze realizacje</h2>
           <p className="text-xl text-muted-foreground max-w-3xl mx-auto">
             Zaufali nam właściciele domów i mieszkań w całej Polsce. Zobacz jak pomagamy naszym klientom.
           </p>
@@ -56,7 +53,7 @@ const Projects = () => {
                   className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
                 />
                 <div className="absolute inset-0 bg-gradient-to-t from-primary via-primary/50 to-transparent opacity-90"></div>
-                
+
                 <div className="absolute bottom-0 left-0 right-0 p-6 text-primary-foreground">
                   <div className="inline-block px-3 py-1 bg-accent rounded-full text-xs font-medium mb-3">
                     {project.type}
@@ -73,7 +70,12 @@ const Projects = () => {
         </div>
 
         <div className="text-center animate-fade-in">
-          <Button variant="outline" size="lg" className="border-accent text-accent hover:bg-accent hover:text-accent-foreground" asChild>
+          <Button
+            variant="outline"
+            size="lg"
+            className="border-accent text-accent hover:bg-accent hover:text-accent-foreground"
+            asChild
+          >
             <a href="#kontakt">Zobacz więcej realizacji</a>
           </Button>
         </div>
