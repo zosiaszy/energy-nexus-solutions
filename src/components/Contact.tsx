@@ -98,7 +98,7 @@ const Contact = () => {
                 </div>
 
                 <div>
-                  <Label htmlFor="message">Wiadomość (opcjonalnie)</Label>
+                  <Label htmlFor="message">Twoja wiadomość</Label>
                   <Textarea
                     id="message"
                     value={formData.message}
@@ -127,7 +127,7 @@ const Contact = () => {
                     <div>
                       <div className="font-medium text-foreground mb-1">Telefon</div>
                       <a href="tel:+48123456789" className="text-muted-foreground hover:text-accent transition-colors">
-                        +48 796 222 504
+                        +48 123 456 789
                       </a>
                     </div>
                   </div>
