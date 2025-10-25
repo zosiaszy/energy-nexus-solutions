@@ -1,6 +1,6 @@
 import { Button } from "@/components/ui/button";
 import { MapPin } from "lucide-react";
-import installationPv from "@/assets/installation-pv.jpg";
+import installationPv from "@/assets/installation-pv-temp.jpg";
 
 const Projects = () => {
   const projects = [
