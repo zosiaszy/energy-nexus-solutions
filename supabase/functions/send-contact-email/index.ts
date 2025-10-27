@@ -71,11 +71,11 @@ const handler = async (req: Request): Promise<Response> => {
       );
     }
 
-    // Send email to kontakt@nexuss.com.pl
+    // Send email to kontakt@nexuss.pl
     const emailResponse = await resend.emails.send({
-      from: "Energy Nexus Solutions <kontakt@nexuss.com.pl>",
-      to: ["kontakt@nexuss.com.pl"],
-      subject: "Nowa wiadomość z formularza Energy Nexus Solutions",
+      from: "Nexuss <kontakt@nexuss.pl>",
+      to: ["kontakt@nexuss.pl"],
+      subject: "Nowa wiadomość z formularza Nexuss",
       html: `
         <h2>Nowa wiadomość z formularza kontaktowego</h2>
         <p><strong>Imię i nazwisko:</strong> ${name}</p>
@@ -86,21 +86,21 @@ const handler = async (req: Request): Promise<Response> => {
       `,
     });
 
-    console.log("Email sent successfully to kontakt@nexuss.com.pl:", emailResponse);
+    console.log("Email sent successfully to kontakt@nexuss.pl:", emailResponse);
 
     // Send autoresponder to the user
     try {
       await resend.emails.send({
-        from: "Energy Nexus Solutions <kontakt@nexuss.com.pl>",
+        from: "Nexuss <kontakt@nexuss.pl>",
         to: [email],
-        subject: "Dziękujemy za kontakt - Energy Nexus Solutions",
+        subject: "Dziękujemy za kontakt - Nexuss",
         html: `
           <h2>Dziękujemy za kontakt!</h2>
           <p>Witaj ${name},</p>
           <p>Otrzymaliśmy Twoją wiadomość i odpowiemy tak szybko jak to możliwe.</p>
           <p>Nasz zespół skontaktuje się z Tobą w ciągu 24 godzin.</p>
           <br>
-          <p>Pozdrawiamy,<br>Zespół Energy Nexus Solutions</p>
+          <p>Pozdrawiamy,<br>Zespół Nexuss</p>
         `,
       });
       console.log("Autoresponder sent successfully to:", email);

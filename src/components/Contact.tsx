@@ -126,8 +126,8 @@ const Contact = () => {
                     </div>
                     <div>
                       <div className="font-medium text-foreground mb-1">Telefon</div>
-                      <a href="tel:+48123456789" className="text-muted-foreground hover:text-accent transition-colors">
-                        +48 123 456 789
+                      <a href="tel:+48572722055" className="text-muted-foreground hover:text-accent transition-colors">
+                        +48 572 722 055
                       </a>
                     </div>
                   </div>
@@ -154,21 +154,12 @@ const Contact = () => {
                     <div>
                       <div className="font-medium text-foreground mb-1">Adres</div>
                       <p className="text-muted-foreground">
-                        ul. Słoneczna 123
+                        Biuro - Zachodnia 70
                         <br />
-                        00-001 Warszawa
+                        90-403 Łódź
                       </p>
                     </div>
                   </div>
-                </div>
-
-                <div className="mt-8 pt-8 border-t border-border">
-                  <div className="font-medium text-foreground mb-3">Godziny otwarcia</div>
-                  <p className="text-muted-foreground">
-                    Pn - Pt: 8:00 - 18:00
-                    <br />
-                    Sobota: 9:00 - 14:00
-                  </p>
                 </div>
               </div>
 
