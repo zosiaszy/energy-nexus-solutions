@@ -14,9 +14,8 @@ const Footer = () => {
               <img 
                 src={nexussLogo} 
                 alt="Nexuss Logo" 
-                className="w-12 h-12 object-contain"
+                className="w-32 h-32 object-contain"
               />
-              <span className="text-2xl font-bold">Nexuss</span>
             </div>
             <p className="text-primary-foreground/70 mb-4 max-w-md">
               Kompleksowe rozwiązania OZE dla Twojego domu. Fotowoltaika, pompy ciepła, 

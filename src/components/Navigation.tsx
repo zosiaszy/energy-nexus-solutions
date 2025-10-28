@@ -32,13 +32,12 @@ const Navigation = () => {
       <div className="container mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex items-center justify-between h-20">
           {/* Logo */}
-          <a href="#" className="flex items-center space-x-3">
+          <a href="/" className="flex items-center">
             <img 
               src={nexussLogo} 
               alt="Nexuss Logo" 
-              className="w-32 h-32 object-contain"
+              className="w-40 h-40 object-contain"
             />
-            <span className="text-2xl font-bold text-foreground">Nexuss</span>
           </a>
 
           {/* Desktop Navigation */}
