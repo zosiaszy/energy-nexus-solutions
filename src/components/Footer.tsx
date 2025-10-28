@@ -1,5 +1,5 @@
 import { Facebook, Instagram, Linkedin, Mail } from "lucide-react";
-import nexussLogo from "@/assets/nexuss-logo.png";
+import nexussLogo from "@/assets/nexuss-logo-new.png";
 
 const Footer = () => {
   const currentYear = new Date().getFullYear();
