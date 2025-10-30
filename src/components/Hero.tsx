@@ -15,7 +15,7 @@ const Hero = () => {
           <h1 className="text-4xl sm:text-5xl lg:text-7xl font-bold text-white mb-6 leading-tight">
             Twój dom. Twoja energia.<br />Twoje ciepło.
           </h1>
-          <p className="text-xl sm:text-2xl text-white mb-8 max-w-2xl leading-relaxed">Nexuss to kompleksowe rozwiązania OZE!  
+          <p className="text-xl sm:text-2xl text-white mb-8 max-w-2xl leading-relaxed">Nexuss to kompleksowe rozwiązania OZE!   
 ● Fotowoltaika ● pompy ciepła ● inteligentne magazyny energii ● Turbiny wiatrowe ● elastyczne panele balkonowe ● piece na pellet! Montaż oraz dofinansowania!</p>
 
           <div className="flex flex-col sm:flex-row gap-4">
