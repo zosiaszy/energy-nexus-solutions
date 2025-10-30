@@ -17,7 +17,7 @@ const Navigation = () => {
 
   const navLinks = [
     { name: "Oferta", href: "#oferta" },
-    { name: "O nas", href: "#o-nas" },
+    { name: "Kariera", href: "#kariera" },
     { name: "Realizacje", href: "#realizacje" },
     { name: "Opinie", href: "#opinie" },
     { name: "Kontakt", href: "#kontakt" },

@@ -12,11 +12,15 @@ const Hero = () => {
       {/* Content */}
       <div className="container mx-auto px-4 sm:px-6 lg:px-8 relative z-10 pt-32">
         <div className="max-w-4xl animate-fade-in">
-          <h1 className="text-4xl sm:text-5xl lg:text-7xl font-bold text-white mb-6 leading-tight">
-            Twój dom. Twoja energia.<br />Twoje ciepło.
+          <h1 className="text-4xl sm:text-5xl lg:text-7xl font-bold text-white mb-6 leading-tight lg:leading-tight">
+            Nexuss to kompleksowe rozwiązania OZE - od elastycznych paneli balkonowych, po inteligentne magazyny energii i pompy ciepła.
           </h1>
-          <p className="text-xl sm:text-2xl text-white mb-8 max-w-2xl leading-relaxed">Nexuss to kompleksowe rozwiązania OZE!   
-● Fotowoltaika ● pompy ciepła ● inteligentne magazyny energii ● Turbiny wiatrowe ● elastyczne panele balkonowe ● piece na pellet! Montaż oraz dofinansowania!</p>
+          <p className="text-xl sm:text-2xl text-white mb-8 max-w-2xl leading-relaxed">
+            Nexuss to kompleksowe rozwiązania OZE!<br />
+            ● Fotowoltaika ● pompy ciepła<br />
+            ● inteligentne magazyny energii ● turbiny wiatrowe ● elastyczne panele balkonowe ● piece na pellet<br />
+            Montaż oraz dofinansowania!
+          </p>
 
           <div className="flex flex-col sm:flex-row gap-4">
             <Button size="lg" className="bg-accent hover:bg-accent/90 text-accent-foreground text-lg px-8 py-6 group" asChild>

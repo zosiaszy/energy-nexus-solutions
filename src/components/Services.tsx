@@ -11,16 +11,16 @@ const Services = () => {
       link: "#fotowoltaika",
     },
     {
-      icon: Building2,
-      title: "Fotowoltaika na balkon",
-      description: "Lekka, nowoczesna technologia do przestrzeni miejskiej i balkonów.",
-      link: "#panele-elastyczne",
-    },
-    {
       icon: Battery,
       title: "Magazyny energii",
       description: "Zachowaj energię na później i zyskaj niezależność od sieci.",
       link: "#magazyny",
+    },
+    {
+      icon: Building2,
+      title: "Fotowoltaika na balkon",
+      description: "Lekka, nowoczesna technologia do przestrzeni miejskiej i balkonów.",
+      link: "#panele-elastyczne",
     },
     {
       icon: Thermometer,

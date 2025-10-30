@@ -53,11 +53,12 @@ const Footer = () => {
           <div>
             <h3 className="font-semibold text-lg mb-4">Partnerzy</h3>
             <ul className="space-y-2 text-primary-foreground/70">
-              <li>Huawei</li>
-              <li>LG</li>
-              <li>Viessmann</li>
-              <li>Fronius</li>
+              <li>Jinko</li>
+              <li>Defro</li>
+              <li>York</li>
+              <li>Deye</li>
               <li>SolarEdge</li>
+              <li>Fellicity</li>
             </ul>
           </div>
         </div>
