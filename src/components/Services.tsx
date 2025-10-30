@@ -6,13 +6,13 @@ const Services = () => {
   const services = [
     {
       icon: Sun,
-      title: "Fotowoltaika on-grid i off-grid",
+      title: "Fotowoltaika i turbiny wiatrowe",
       description: "Produkuj własny prąd i oszczędzaj na rachunkach dzięki nowoczesnym instalacjom PV.",
       link: "#fotowoltaika",
     },
     {
       icon: Building2,
-      title: "Elastyczne panele dla mieszkań z inteligentnymi magazynami energii",
+      title: "Fotowoltaika na balkon",
       description: "Lekka, nowoczesna technologia do przestrzeni miejskiej i balkonów.",
       link: "#panele-elastyczne",
     },

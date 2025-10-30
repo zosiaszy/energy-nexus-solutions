@@ -34,7 +34,7 @@ const WhyUs = () => {
       <div className="container mx-auto px-4 sm:px-6 lg:px-8">
         <div className="text-center mb-16 animate-fade-in">
           <h2 className="text-4xl md:text-5xl font-bold mb-6 text-foreground">
-            Twój partner w niezależności energetycznej
+            Twój partner w branży OZE
           </h2>
           <p className="text-xl text-muted-foreground max-w-2xl mx-auto">
             Z nami zyskujesz nie tylko instalację, ale spokój i realne oszczędności.

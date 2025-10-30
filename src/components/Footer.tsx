@@ -19,7 +19,7 @@ const Footer = () => {
             </div>
             <p className="text-primary-foreground/70 mb-4 max-w-md">
               Kompleksowe rozwiązania OZE dla Twojego domu. Fotowoltaika, pompy ciepła, 
-              magazyny energii i klimatyzacja.
+              magazyny energii, klimatyzacja, turbiny wiatrowe i piece pelletowe.
             </p>
             <div className="flex space-x-4">
               <a href="#" className="w-10 h-10 bg-primary-foreground/10 rounded-lg flex items-center justify-center hover:bg-accent transition-colors">
