@@ -10,7 +10,7 @@ const WhyUs = () => {
     {
       icon: Wallet,
       title: "Oszczędność",
-      description: "Obniż rachunki za prąd nawet o 90% dzięki naszym rozwiązaniom.",
+      description: "Obniż rachunki za prąd nawet o 95% dzięki naszym rozwiązaniom.",
     },
     {
       icon: Leaf,
