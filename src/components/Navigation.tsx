@@ -32,11 +32,11 @@ const Navigation = () => {
       <div className="container mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex items-center justify-between py-2">
           {/* Logo */}
-          <a href="/" className="flex items-center -my-2">
+          <a href="/" className="flex items-center">
             <img 
               src={nexussLogo} 
               alt="Nexuss Logo" 
-              className="w-24 h-24 md:w-40 md:h-40 object-contain"
+              className="w-20 h-20 md:w-36 md:h-36 object-contain"
             />
           </a>
 
