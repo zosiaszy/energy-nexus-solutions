@@ -75,19 +75,8 @@ export default async function handler(req: any, res: any) {
     port,
     secure: port === 465, // 465 = SSL, 587 = STARTTLS
     auth: { user, pass },
-    authMethod: "LOGIN",
+    requireTLS: port === 587,
   });
-
-  // Zweryfikuj połączenie/auth zanim wyślemy
-  try {
-    await transporter.verify();
-  } catch (e: any) {
-    return res.status(401).json({
-      message: "SMTP auth failed",
-      code: e?.code,
-      response: e?.response,
-    });
-  }
 
   const subject = `Formularz: ${name} (${propertyType || "nie podano"})`;
 
@@ -120,7 +109,10 @@ export default async function handler(req: any, res: any) {
     });
     return res.status(200).json({ ok: true, provider: "smtp" });
   } catch (e: any) {
-    console.error("SMTP send error:", e);
-    return res.status(500).json({ message: e?.message || "Nie udało się wysłać wiadomości" });
+    const code = e?.code || e?.responseCode;
+    if (code === "EAUTH" || code === 535 || code === 534) {
+      return res.status(401).json({ message: "SMTP auth failed" });
+    }
+    return res.status(500).json({ message: "Nie udało się wysłać wiadomości" });
   }
 }
