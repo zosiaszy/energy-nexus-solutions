@@ -1,4 +1,4 @@
-import { useRef, useState } from "react";
+import { useState } from "react";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
@@ -17,8 +17,6 @@ const Contact = () => {
     propertyType: "",
     message: "",
   });
-  const hpRef = useRef<HTMLInputElement>(null); // honeypot
-
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
 
@@ -33,23 +31,29 @@ const Contact = () => {
 
     setIsSubmitting(true);
     try {
+      const hpValue = (document.querySelector('input[name="hp"]') as HTMLInputElement)?.value || "";
+      
       const res = await fetch("/api/contact", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ ...formData, hp: hpRef.current?.value || "" }),
+        body: JSON.stringify({ ...formData, hp: hpValue }),
       });
 
+      if (res.status === 401) {
+        throw new Error("Błędne dane logowania SMTP (user/hasło)");
+      }
       if (res.status === 503) {
         throw new Error("Wysyłka chwilowo niedostępna – konfiguracja w toku.");
       }
       if (!res.ok) {
-        const msg = await res.text().catch(() => "");
-        throw new Error(msg || `Błąd wysyłki (HTTP ${res.status})`);
+        const data = await res.json().catch(() => ({}));
+        throw new Error(data.message || `Błąd wysyłki (HTTP ${res.status})`);
       }
 
       toast({ title: "Wiadomość wysłana!", description: "Skontaktujemy się z Tobą wkrótce." });
       setFormData({ name: "", phone: "", email: "", propertyType: "", message: "" });
-      if (hpRef.current) hpRef.current.value = "";
+      const hpInput = document.querySelector('input[name="hp"]') as HTMLInputElement;
+      if (hpInput) hpInput.value = "";
     } catch (err: any) {
       toast({
         variant: "destructive",
@@ -82,13 +86,12 @@ const Contact = () => {
               <form onSubmit={handleSubmit} className="space-y-6" noValidate>
                 {/* honeypot */}
                 <input
-                  ref={hpRef}
-                  type="text"
                   name="hp"
+                  type="text"
                   tabIndex={-1}
                   autoComplete="off"
                   aria-hidden="true"
-                  style={{ position: "absolute", left: "-9999px", width: "1px", height: "1px" }}
+                  style={{ position: "absolute", left: "-9999px", width: 1, height: 1 }}
                 />
 
                 <div>
