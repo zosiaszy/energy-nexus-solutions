@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useRef, useState } from "react";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
@@ -9,6 +9,7 @@ import { useToast } from "@/hooks/use-toast";
 
 const Contact = () => {
   const { toast } = useToast();
+  const [isSubmitting, setIsSubmitting] = useState(false);
   const [formData, setFormData] = useState({
     name: "",
     phone: "",
@@ -16,14 +17,48 @@ const Contact = () => {
     propertyType: "",
     message: "",
   });
+  const hpRef = useRef<HTMLInputElement>(null); // honeypot
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    toast({
-      title: "Wiadomość wysłana!",
-      description: "Skontaktujemy się z Tobą wkrótce.",
-    });
-    setFormData({ name: "", phone: "", email: "", propertyType: "", message: "" });
+
+    if (!formData.propertyType) {
+      toast({
+        variant: "destructive",
+        title: "Brakuje typu nieruchomości",
+        description: "Wybierz typ nieruchomości, aby kontynuować.",
+      });
+      return;
+    }
+
+    setIsSubmitting(true);
+    try {
+      const res = await fetch("/api/contact", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ ...formData, hp: hpRef.current?.value || "" }),
+      });
+
+      if (res.status === 503) {
+        throw new Error("Wysyłka chwilowo niedostępna – konfiguracja w toku.");
+      }
+      if (!res.ok) {
+        const msg = await res.text().catch(() => "");
+        throw new Error(msg || `Błąd wysyłki (HTTP ${res.status})`);
+      }
+
+      toast({ title: "Wiadomość wysłana!", description: "Skontaktujemy się z Tobą wkrótce." });
+      setFormData({ name: "", phone: "", email: "", propertyType: "", message: "" });
+      if (hpRef.current) hpRef.current.value = "";
+    } catch (err: any) {
+      toast({
+        variant: "destructive",
+        title: "Nie udało się wysłać wiadomości",
+        description: err?.message || "Spróbuj ponownie za chwilę.",
+      });
+    } finally {
+      setIsSubmitting(false);
+    }
   };
 
   return (
@@ -44,7 +79,18 @@ const Contact = () => {
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-12">
             {/* Contact Form */}
             <div className="animate-fade-in" style={{ animationDelay: "0.1s" }}>
-              <form onSubmit={handleSubmit} className="space-y-6">
+              <form onSubmit={handleSubmit} className="space-y-6" noValidate>
+                {/* honeypot */}
+                <input
+                  ref={hpRef}
+                  type="text"
+                  name="hp"
+                  tabIndex={-1}
+                  autoComplete="off"
+                  aria-hidden="true"
+                  style={{ position: "absolute", left: "-9999px", width: "1px", height: "1px" }}
+                />
+
                 <div>
                   <Label htmlFor="name">Imię i nazwisko</Label>
                   <Input
@@ -86,7 +132,7 @@ const Contact = () => {
                     value={formData.propertyType}
                     onValueChange={(value) => setFormData({ ...formData, propertyType: value })}
                   >
-                    <SelectTrigger className="mt-2">
+                    <SelectTrigger className="mt-2" id="propertyType">
                       <SelectValue placeholder="Wybierz typ" />
                     </SelectTrigger>
                     <SelectContent className="bg-popover border-border">
@@ -104,12 +150,18 @@ const Contact = () => {
                     value={formData.message}
                     onChange={(e) => setFormData({ ...formData, message: e.target.value })}
                     rows={4}
+                    required
                     className="mt-2"
                   />
                 </div>
 
-                <Button type="submit" size="lg" className="w-full bg-accent hover:bg-accent/90 text-accent-foreground">
-                  Wyślij wiadomość
+                <Button
+                  type="submit"
+                  size="lg"
+                  className="w-full bg-accent hover:bg-accent/90 text-accent-foreground"
+                  disabled={isSubmitting}
+                >
+                  {isSubmitting ? "Wysyłanie..." : "Wyślij wiadomość"}
                 </Button>
               </form>
             </div>
