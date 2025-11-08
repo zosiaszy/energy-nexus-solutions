@@ -20,23 +20,17 @@ const Contact = () => {
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
 
-    if (!formData.propertyType) {
-      toast({
-        variant: "destructive",
-        title: "Brakuje typu nieruchomości",
-        description: "Wybierz typ nieruchomości, aby kontynuować.",
-      });
-      return;
-    }
-
     setIsSubmitting(true);
     try {
       const hpValue = (document.querySelector('input[name="hp"]') as HTMLInputElement)?.value || "";
       
+      const payload = { ...formData, hp: hpValue };
+      if (!payload.propertyType) delete (payload as any).propertyType;
+      
       const res = await fetch("/api/contact", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ ...formData, hp: hpValue }),
+        body: JSON.stringify(payload),
       });
 
       if (res.status === 401) {
@@ -130,18 +124,19 @@ const Contact = () => {
                 </div>
 
                 <div>
-                  <Label htmlFor="propertyType">Typ nieruchomości</Label>
+                  <Label htmlFor="propertyType">Typ nieruchomości (opcjonalnie)</Label>
                   <Select
                     value={formData.propertyType}
                     onValueChange={(value) => setFormData({ ...formData, propertyType: value })}
                   >
                     <SelectTrigger className="mt-2" id="propertyType">
-                      <SelectValue placeholder="Wybierz typ" />
+                      <SelectValue placeholder="(opcjonalnie) – możesz pominąć" />
                     </SelectTrigger>
                     <SelectContent className="bg-popover border-border">
                       <SelectItem value="dom">Dom jednorodzinny</SelectItem>
                       <SelectItem value="mieszkanie">Mieszkanie</SelectItem>
                       <SelectItem value="firma">Firma</SelectItem>
+                      <SelectItem value="nie-wiem">Nie wiem jeszcze</SelectItem>
                     </SelectContent>
                   </Select>
                 </div>
