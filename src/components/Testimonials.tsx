@@ -7,7 +7,7 @@ const Testimonials = () => {
       name: "Michał",
       location: "Warszawa",
       rating: 5,
-      text: "Profesjonalny montaż i realne oszczędności. Moje rachunki spadły o połowę!",
+      text: "Błyskawiczny, profesjonalny montaż Fotowoltaiki! …Szybki odbiór przez energetykę\" dziękuję i polecam!",
     },
     {
       name: "Katarzyna",
