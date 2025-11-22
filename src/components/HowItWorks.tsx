@@ -11,15 +11,15 @@ const HowItWorks = () => {
     },
     {
       number: "02",
-      icon: FileText,
-      title: "Obsługa oraz zgłoszenia",
-      description: "Zgłaszamy instalacje do zakładu energetycznego, straży pożarnej, oraz po odbiór dofinansowań.",
-    },
-    {
-      number: "03",
       icon: Wrench,
       title: "Profesjonalny montaż",
       description: "Zespół certyfikowanych instalatorów Nexuss.",
+    },
+    {
+      number: "03",
+      icon: FileText,
+      title: "Obsługa oraz zgłoszenia",
+      description: "Zgłaszamy instalacje do zakładu energetycznego, straży pożarnej, oraz po odbiór dofinansowań.",
     },
     {
       number: "04",
