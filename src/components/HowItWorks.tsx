@@ -6,14 +6,14 @@ const HowItWorks = () => {
     {
       number: "01",
       icon: Search,
-      title: "Bezpłatny audyt energetyczny",
-      description: "Analizujemy Twój dom i dobieramy najlepsze rozwiązanie.",
+      title: "Bezpłatny audyt i wycena",
+      description: "Analizujemy Twój dom i dobieramy najlepsze rozwiązanie. Przejrzysty kosztorys bez ukrytych opłat.",
     },
     {
       number: "02",
       icon: FileText,
-      title: "Projekt i wycena",
-      description: "Przejrzysty kosztorys bez ukrytych opłat.",
+      title: "Obsługa oraz zgłoszenia",
+      description: "Zgłaszamy instalacje do zakładu energetycznego, straży pożarnej, oraz po odbiór dofinansowań.",
     },
     {
       number: "03",

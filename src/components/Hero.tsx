@@ -13,16 +13,23 @@ const Hero = () => {
       <div className="container mx-auto px-4 sm:px-6 lg:px-8 relative z-10 pt-32">
         <div className="max-w-4xl animate-fade-in">
           <h1 className="text-4xl sm:text-5xl lg:text-7xl font-bold text-white mb-6 leading-tight lg:leading-tight">
-            Nexuss to kompleksowe rozwiązania OZE
+            Nexuss to kompleksowe rozwiązania OZE!
           </h1>
-          <p className="text-xl sm:text-2xl text-white mb-8 max-w-2xl leading-relaxed">
-            - od elastycznych paneli balkonowych, po inteligentne magazyny energii i pompy ciepła.
-          </p>
+          <div className="text-xl sm:text-2xl text-white mb-8 max-w-2xl leading-relaxed">
+            <ul className="space-y-2">
+              <li>● Fotowoltaika</li>
+              <li>● Pompy ciepła</li>
+              <li>● Inteligentne magazyny energii</li>
+              <li>● Turbiny wiatrowe</li>
+              <li>● Elastyczne panele balkonowe</li>
+              <li>● Piece na pellet</li>
+            </ul>
+          </div>
 
           <div className="flex flex-col sm:flex-row gap-4">
             <Button size="lg" className="bg-accent hover:bg-accent/90 text-accent-foreground text-lg px-8 py-6 group" asChild>
               <a href="#kontakt">
-                Umów darmową wycenę
+                Umów bezpłatną wycenę
                 <ArrowRight className="ml-2 group-hover:translate-x-1 transition-transform" />
               </a>
             </Button>
@@ -31,7 +38,7 @@ const Hero = () => {
           {/* Stats */}
           <div className="grid grid-cols-2 md:grid-cols-3 gap-6 mt-16 pt-8 border-t border-white/20">
             <div className="animate-fade-in">
-              <div className="text-4xl font-bold text-accent mb-2">500+</div>
+              <div className="text-4xl font-bold text-accent mb-2">1500+</div>
               <div className="text-white/80 text-sm">Zadowolonych klientów</div>
             </div>
             <div className="animate-fade-in" style={{
