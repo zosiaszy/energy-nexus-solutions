@@ -12,11 +12,11 @@ const Hero = () => {
       {/* Content */}
       <div className="container mx-auto px-4 sm:px-6 lg:px-8 relative z-10 pt-32">
         <div className="max-w-4xl animate-fade-in">
-          <h1 className="text-4xl sm:text-5xl lg:text-7xl font-bold text-white mb-6 leading-tight lg:leading-tight">
+          <h1 className="text-3xl sm:text-4xl lg:text-5xl font-bold text-white mb-6 leading-tight">
             Nexuss to kompleksowe rozwiązania OZE!
           </h1>
-          <div className="text-xl sm:text-2xl text-white mb-8 max-w-2xl leading-relaxed">
-            <ul className="space-y-2">
+          <div className="text-base sm:text-lg text-white/90 mb-8 max-w-xl leading-relaxed">
+            <ul className="space-y-1.5">
               <li>● Fotowoltaika</li>
               <li>● Pompy ciepła</li>
               <li>● Inteligentne magazyny energii</li>
