@@ -36,7 +36,7 @@ const Navigation = () => {
             <img 
               src={nexussLogo} 
               alt="Nexuss Logo" 
-              className="w-28 h-28 md:w-48 md:h-48 object-contain"
+              className="w-24 h-24 md:w-44 md:h-44 object-contain"
             />
           </a>
 
@@ -46,7 +46,7 @@ const Navigation = () => {
               <a
                 key={link.name}
                 href={link.href}
-                className="text-white hover:text-accent transition-colors duration-200 font-medium"
+                className="text-white hover:text-accent transition-colors duration-200 font-medium text-base"
               >
                 {link.name}
               </a>
