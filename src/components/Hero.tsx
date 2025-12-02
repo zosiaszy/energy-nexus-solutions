@@ -1,4 +1,4 @@
-import { ArrowRight } from "lucide-react";
+import { ArrowRight, Sun, Waves, Battery, Wind, Home, Flame } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import heroImage from "@/assets/hero-image.jpg";
 const Hero = () => {
@@ -15,14 +15,32 @@ const Hero = () => {
           <h1 className="text-3xl sm:text-4xl lg:text-5xl font-bold text-white mb-6 leading-tight">
             Nexuss to kompleksowe rozwiązania OZE!
           </h1>
-          <div className="text-base sm:text-lg text-white/90 mb-8 max-w-xl leading-relaxed">
-            <ul className="space-y-1.5">
-              <li>● Fotowoltaika</li>
-              <li>● Pompy ciepła</li>
-              <li>● Inteligentne magazyny energii</li>
-              <li>● Turbiny wiatrowe</li>
-              <li>● Elastyczne panele balkonowe</li>
-              <li>● Piece na pellet</li>
+          <div className="text-base sm:text-lg text-white/90 mb-8 max-w-xl">
+            <ul className="space-y-2">
+              <li className="flex items-center gap-3">
+                <Sun className="w-5 h-5 text-accent flex-shrink-0" />
+                <span>Fotowoltaika</span>
+              </li>
+              <li className="flex items-center gap-3">
+                <Waves className="w-5 h-5 text-accent flex-shrink-0" />
+                <span>Pompy ciepła</span>
+              </li>
+              <li className="flex items-center gap-3">
+                <Battery className="w-5 h-5 text-accent flex-shrink-0" />
+                <span>Inteligentne magazyny energii</span>
+              </li>
+              <li className="flex items-center gap-3">
+                <Wind className="w-5 h-5 text-accent flex-shrink-0" />
+                <span>Turbiny wiatrowe</span>
+              </li>
+              <li className="flex items-center gap-3">
+                <Home className="w-5 h-5 text-accent flex-shrink-0" />
+                <span>Elastyczne panele balkonowe</span>
+              </li>
+              <li className="flex items-center gap-3">
+                <Flame className="w-5 h-5 text-accent flex-shrink-0" />
+                <span>Piece na pellet</span>
+              </li>
             </ul>
           </div>
 

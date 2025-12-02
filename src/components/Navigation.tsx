@@ -36,7 +36,7 @@ const Navigation = () => {
             <img 
               src={nexussLogo} 
               alt="Nexuss Logo" 
-              className="w-24 h-24 md:w-40 md:h-40 object-contain"
+              className="w-28 h-28 md:w-48 md:h-48 object-contain"
             />
           </a>
 
